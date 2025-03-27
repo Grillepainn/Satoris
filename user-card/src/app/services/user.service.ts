@@ -18,11 +18,16 @@ export class UserService {
     2. Récupérer un eliste de users
   */
 
-    getRandomUser(): Observable<User> {
-      return this.http.get<{ results: User[] }>(this.url_api_user).pipe(
-        map((response: { results: User[] }) => response.results[0])
-      );
-    }
+    //Méthode pour récupérer un user aléatoire
+  getRandomUser(): Observable<User> {
+    // Effectue une requête http définis dans this.url_api_user
+    return this.http.get<{ results: User[] }>(this.url_api_user).pipe(
+      // Quand on reçoit la réponse, on utilise .map de la librairie rxjs
+      map((response: { results: User[] }) =>
+        // On extrait le premier user du tableau
+        response.results[0])
+    );
+  }
 
   getListofRandomUsers(count: number = 10): Observable<User[]> {
     return this.http.get<{ results: User[] }>(`${this.url_api_user}?results=${count}`).pipe(
