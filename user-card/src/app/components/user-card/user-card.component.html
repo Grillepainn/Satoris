@@ -1,9 +1,20 @@
 @if(user) {
-  <div class="card">
-    <img [src]="user.picture.large" alt="Photo de l'utilisateur" class="avatar">
-    <h2>{{user.name.first}} {{user.name.last}}</h2>
-    <p>{{user.email}}</p>
-    <p>{{user.location.city}}, {{user.location.country}}</p>
+<div class="card">
+  <img [src]="user.picture.large" alt="Photo de l'utilisateur" class="avatar">
+  <h2>{{user.name.first}} {{user.name.last}}</h2>
+  <p>{{user.email}}</p>
+  <p>{{user.location.city}}, {{user.location.country}}</p>
+
+
+  <h3>Liste de mes amis incroyables</h3>
+  <div class="friends">
+    @for(item of userList; track item) {
+    <div class="friend">
+      <img [src]="item.picture.thumbnail" alt="Photo d'un ami">
+      <span>{{item.name.first}}</span>
+    </div>
+    }
   </div>
+</div>
 }
 

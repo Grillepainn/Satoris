@@ -11,13 +11,18 @@ import { CommonModule } from '@angular/common';
 })
 
 export class UserCardComponent {
-  user:any;
+  user!:User;
+  userList: User[] = [];
   constructor(private userService: UserService) {}
 
   ngOnInit() {
-    this.userService.getRandomUser().subscribe(res => {
-      this.user = res.results[0];
-    })
+    this.userService.getRandomUser().subscribe((user: User) => {
+      this.user = user;
+    });
+
+    this.userService.getListofRandomUsers(5).subscribe((userList: User[]) => {
+      this.userList = userList;
+    });
   }
 
 }
