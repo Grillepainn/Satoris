@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
 export class UserCardComponent {
   user!:User;
   userList: User[] = [];
+
+  showDetails = false;
   constructor(private userService: UserService) {}
 
   ngOnInit() {
@@ -23,6 +25,10 @@ export class UserCardComponent {
     this.userService.getListofRandomUsers(5).subscribe((userList: User[]) => {
       this.userList = userList;
     });
+  }
+
+  toggleDetails(){
+    this.showDetails =!this.showDetails
   }
 
 }

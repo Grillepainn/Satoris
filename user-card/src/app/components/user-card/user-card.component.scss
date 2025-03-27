@@ -44,4 +44,32 @@
       transform: translateY(-5px)
     }
   }
+
+  .button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #3730a3;
+    }
+  }
+
+  .details{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+
+    &.visible {
+      max-height: 200px;
+      opacity: 1;
+      margin-top: 1rem;
+    }
+  }
 }

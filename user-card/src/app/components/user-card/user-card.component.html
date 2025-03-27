@@ -5,6 +5,15 @@
   <p>{{user.email}}</p>
   <p>{{user.location.city}}, {{user.location.country}}</p>
 
+  <button (click)="toggleDetails()">
+    {{showDetails ? 'Hide' : 'Show'}} Plus d'information
+  </button>
+
+  <div class="details" [class.visible]="showDetails">
+    <p><strong>Phone:</strong> {{user.phone}}</p>
+    <p><strong>Nom d'utilisateur:</strong> {{user.login.username}}</p>
+  </div>
+
 
   <h3>Liste de mes amis incroyables</h3>
   <div class="friends">

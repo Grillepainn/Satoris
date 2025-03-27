@@ -5,6 +5,9 @@ export interface User {
     first: string,
     last: string
   },
+  login: {
+    username: string;
+  }
   location: {
     city: string,
     country: string,
@@ -14,6 +17,7 @@ export interface User {
     }
   },
   email: string,
+  phone: number,
   picture: {
     large: string,
     medium: string,
