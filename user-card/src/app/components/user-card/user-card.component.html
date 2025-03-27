@@ -1,5 +1,7 @@
+<!-- Affiche la div uniquement si la variable 'user' est définie -->
 @if(user) {
 <div class="card">
+  <!-- Affiche les infos de l'utilisateur -->
   <img [src]="user.picture.large" alt="Photo de l'utilisateur" class="avatar">
   <h2>{{user.name.first}} {{user.name.last}}</h2>
   <p>{{user.email}}</p>
@@ -9,12 +11,13 @@
     {{showDetails ? 'Hide' : 'Show'}} Plus d'information
   </button>
 
+   <!-- Bloc contenant les détails supplémentaires, affiché seulement si 'showDetails' est a true -->
   <div class="details" [class.visible]="showDetails">
     <p><strong>Phone:</strong> {{user.phone}}</p>
     <p><strong>Nom d'utilisateur:</strong> {{user.login.username}}</p>
   </div>
 
-
+<!-- Affiche une liste d’amis à l’aide de la directive @for -->
   <h3>Liste de mes amis incroyables</h3>
   <div class="friends">
     @for(item of userList; track item) {
