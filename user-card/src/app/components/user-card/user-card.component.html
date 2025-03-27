@@ -1,1 +1,9 @@
-<p>user-card works!</p>
+@if(user) {
+  <div class="card">
+    <img [src]="user.picture.large" alt="Photo de l'utilisateur" class="avatar">
+    <h2>{{user.name.first}} {{user.name.last}}</h2>
+    <p>{{user.email}}</p>
+    <p>{{user.location.city}}, {{user.location.country}}</p>
+  </div>
+}
+
